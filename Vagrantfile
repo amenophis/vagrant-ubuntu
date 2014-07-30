@@ -6,22 +6,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.synced_folder "./", "/var/www", :type => "nfs"
 
-  config.vm.provision "shell", path: "vagrant/git.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/ohMyZ.sh", args: ["/home/vagrant", "vagrant"], run: "always"
-  config.vm.provision "shell", path: "vagrant/ohMyZ.sh", args: ["/root", "root"], run: "always"
-  config.vm.provision "shell", path: "vagrant/nginx.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/mysql.sh", args: ["root"], run: "always"
-  config.vm.provision "shell", path: "vagrant/php-fpm.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/php-cli.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/nodejs.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/npm.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/bower.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/grunt.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/composer.sh", run: "always"
-  config.vm.provision "shell", path: "vagrant/phpmyadmin.sh", args: ["root"], run: "always"
-  config.vm.provision "shell", path: "vagrant/elasticsearch.sh", args: ["1.3.1"], run: "always"
+  config.vm.provision "shell", path: "vagrant/init.sh"
+  config.vm.provision "shell", path: "vagrant/git.sh"
+  config.vm.provision "shell", path: "vagrant/ohMyZ.sh", args: ["/home/vagrant", "vagrant"]
+  config.vm.provision "shell", path: "vagrant/ohMyZ.sh", args: ["/root", "root"]
+  config.vm.provision "shell", path: "vagrant/nginx.sh"
+  config.vm.provision "shell", path: "vagrant/mysql.sh", args: ["root"]
+  config.vm.provision "shell", path: "vagrant/php-fpm.sh"
+  config.vm.provision "shell", path: "vagrant/php-cli.sh"
+  config.vm.provision "shell", path: "vagrant/nodejs.sh"
+  config.vm.provision "shell", path: "vagrant/npm.sh"
+  config.vm.provision "shell", path: "vagrant/bower.sh"
+  config.vm.provision "shell", path: "vagrant/grunt.sh"
+  config.vm.provision "shell", path: "vagrant/composer.sh"
+  config.vm.provision "shell", path: "vagrant/phpmyadmin.sh", args: ["root"]
+  config.vm.provision "shell", path: "vagrant/elasticsearch.sh", args: ["1.3.1"]
 
-  # Add here custom provision script
+  config.vm.provision "file", source: "vagrant_custom/vhost", destination: "/tmp/etc/nginx/sites-available/default", run: "always"
+  config.vm.provision "shell", path: "vagrant_custom/custom.sh", run: "always"  
+  
+  # You can add more custom provision script here
 
   config.vm.hostname = 'my-host.dev'
   config.hostmanager.enabled = true

@@ -2,8 +2,10 @@
 
 if [ ! -f /usr/bin/git ];
 then
-    echo "installing elasticsearch"
-    sudo apt-get update
+    echo "------------------------"
+    echo "Installing elasticsearch"
+    echo "------------------------"
+
     sudo apt-get install openjdk-7-jre-headless -y
 
     wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$1.deb

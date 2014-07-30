@@ -2,8 +2,9 @@
 
 if [ ! -f /etc/nginx/nginx.conf ];
 then
-    echo "installing nginx"
-    apt-get update
+    echo "----------------"
+    echo "Installing nginx"
+    echo "----------------"
 
     apt-get install -y --force-yes nginx
 fi

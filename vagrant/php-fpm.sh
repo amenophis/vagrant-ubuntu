@@ -2,8 +2,10 @@
 
 if [ ! -f /etc/php5/fpm/php.ini ];
 then
-    echo "installing php-fpm"
-    apt-get update
+    echo "------------------"
+    echo "Installing php-fpm"
+    echo "------------------"
+
     apt-get install -y --force-yes php5-fpm
 
     sed -i -e "s/;date.timezone =/date.timezone = Europe\/Paris/g" /etc/php5/fpm/php.ini

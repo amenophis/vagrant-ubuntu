@@ -2,7 +2,9 @@
 
 if [ ! -f /usr/local/bin/grunt ]
 then
-    echo "installing grunt"
+    echo "----------------"
+    echo "Installing grunt"
+    echo "----------------"
 
     npm install -g grunt-cli
 fi

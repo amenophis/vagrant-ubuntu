@@ -2,7 +2,9 @@
 
 if [ ! -f /usr/bin/composer ];
 then
-    echo "installing composer"
+    echo "-------------------"
+    echo "Installing composer"
+    echo "-------------------"
 
     curl -sS https://getcomposer.org/installer | php
     mv composer.phar /usr/bin/composer

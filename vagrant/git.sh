@@ -2,7 +2,9 @@
 
 if [ ! -f /usr/bin/git ];
 then
-    echo "installing git"
+    echo "--------------"
+    echo "Installing git"
+    echo "--------------"
 
     apt-get install -y --force-yes git-core
 

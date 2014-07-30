@@ -2,7 +2,9 @@
 
 if [ ! -f /usr/bin/npm ];
 then
-    echo "installing nodejs"
+    echo "-----------------"
+    echo "Installing nodejs"
+    echo "-----------------"
 
     apt-get install -y --force-yes nodejs
 
