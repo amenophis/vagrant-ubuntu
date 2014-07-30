@@ -27,7 +27,9 @@ Install git
 
 ## grunt.sh
 Install grunt via npm
+
 > Needs: nodejs, npm
+
 `config.vm.provision "shell", path: "vagrant/grunt.sh"`
 
 ## init.sh
@@ -44,6 +46,7 @@ Install mysql
 
 ## nginx.sh
 Install nginx
+
 `config.vm.provision "shell", path: "vagrant/nginx.sh"`
 
 ## nodejs.sh
