@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f /usr/bin/git ];
+if [ ! -f /usr/bin/rcelasticsearch ];
 then
     echo "------------------------"
     echo "Installing elasticsearch"

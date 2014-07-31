@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f /usr/bin/npm ];
+if [ ! -f /usr/bin/nodejs ];
 then
     echo "-----------------"
     echo "Installing nodejs"
